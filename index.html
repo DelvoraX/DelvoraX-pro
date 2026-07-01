@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DelvoraX — Launching Soon</title>
+  <meta name="description" content="AI sales-outreach co-pilot. Launching soon at delvorax.pro." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Source+Sans+3:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:   #1A1F2E;
+      --teal:   #0F8C74;
+      --teal-light: #E6F5F1;
+      --white:  #FFFFFF;
+      --surface: #F6F7F9;
+      --hairline: #E5E8ED;
+      --text-muted: #6B7280;
+    }
+
+    html, body {
+      height: 100%;
+    }
+
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      background: var(--white);
+      color: var(--navy);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    /* ---- ORB ---- */
+    .orb {
+      width: 72px;
+      height: 72px;
+      margin-bottom: 2rem;
+      animation: pulse 3s ease-in-out infinite;
+    }
+
+    @keyframes pulse {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%       { opacity: 0.8; transform: scale(0.97); }
+    }
+
+    /* ---- WORDMARK ---- */
+    .wordmark {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 3rem;
+    }
+
+    /* ---- DIVIDER ---- */
+    .rule {
+      width: 40px;
+      height: 1px;
+      background: var(--hairline);
+      margin: 0 auto 3rem;
+    }
+
+    /* ---- HEADLINE ---- */
+    .headline {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      color: var(--navy);
+      text-align: center;
+      line-height: 1.2;
+      max-width: 520px;
+      margin-bottom: 1rem;
+    }
+
+    .headline span {
+      color: var(--teal);
+    }
+
+    .sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      text-align: center;
+      max-width: 380px;
+      line-height: 1.6;
+      margin-bottom: 3rem;
+    }
+
+    /* ---- EMAIL FORM ---- */
+    .form {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      width: 100%;
+      max-width: 420px;
+      margin-bottom: 3rem;
+    }
+
+    .form input {
+      flex: 1;
+      min-width: 200px;
+      padding: 0.75rem 1rem;
+      border: 1px solid var(--hairline);
+      border-radius: 4px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.95rem;
+      color: var(--navy);
+      background: var(--surface);
+      outline: none;
+      transition: border-color 0.2s;
+    }
+
+    .form input:focus {
+      border-color: var(--teal);
+    }
+
+    .form input::placeholder {
+      color: var(--text-muted);
+    }
+
+    .form button {
+      padding: 0.75rem 1.4rem;
+      background: var(--teal);
+      color: var(--white);
+      border: none;
+      border-radius: 4px;
+      font-family: 'Source Sans 3', sans-serif;
+      font-size: 0.95rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+      white-space: nowrap;
+    }
+
+    .form button:hover {
+      background: #0a7460;
+    }
+
+    /* ---- FOOTER ---- */
+    .footer {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hairline);
+    }
+
+    /* ---- RESPONSIVE ---- */
+    @media (max-width: 480px) {
+      .form { flex-direction: column; }
+      .form input, .form button { width: 100%; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .orb { animation: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Orb logo -->
+  <svg class="orb" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <circle cx="32" cy="32" r="26" fill="none" stroke="#0F8C74" stroke-width="1.5" stroke-dasharray="2.2 4.4"/>
+    <circle cx="32" cy="32" r="16" fill="none" stroke="#0F8C74" stroke-width="1.5"/>
+    <circle cx="32" cy="32" r="6" fill="#0F8C74"/>
+  </svg>
+
+  <p class="wordmark">DelvoraX</p>
+  <p class="tagline">AI Outreach Co-Pilot</p>
+
+  <div class="rule"></div>
+
+  <h1 class="headline">
+    Add accounts.<br/>
+    Fill the <span>calendar.</span>
+  </h1>
+
+  <p class="sub">
+    Something worth waiting for. Drop your email and we'll let you know the moment early access opens.
+  </p>
+
+  <form class="form" onsubmit="handleSubmit(event)">
+    <input type="email" placeholder="your@email.com" required aria-label="Email address" />
+    <button type="submit">Notify me</button>
+  </form>
+
+  <p class="footer">delvorax.pro</p>
+
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = 'You\'re on the list';
+      btn.style.background = '#1D9E75';
+      btn.disabled = true;
+      e.target.querySelector('input').disabled = true;
+    }
+  </script>
+
+</body>
+</html>
