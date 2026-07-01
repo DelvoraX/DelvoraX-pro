@@ -121,6 +121,7 @@
       white-space: nowrap;
     }
     .form button:hover { background: #0a7460; }
+    .form button:disabled { background: #1D9E75; cursor: default; }
     .footer {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.65rem;
@@ -155,17 +156,36 @@
   </p>
   <div class="form">
     <input type="email" id="emailInput" placeholder="your@email.com" aria-label="Email address" />
-    <button onclick="openTally()">Notify me</button>
+    <button id="submitBtn" onclick="submitEmail()">Notify me</button>
   </div>
   <p class="footer">delvorax.pro</p>
   <script>
-    function openTally() {
+    async function submitEmail() {
       const email = document.getElementById('emailInput').value;
+      const btn = document.getElementById('submitBtn');
       if (!email || !email.includes('@')) {
         document.getElementById('emailInput').focus();
         return;
       }
-      window.open('https://tally.so/r/EkgG6o?email=' + encodeURIComponent(email), '_blank');
+      btn.textContent = 'Sending...';
+      btn.disabled = true;
+      try {
+        const res = await fetch('https://formspree.io/f/xzdljvjp', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify({ email: email })
+        });
+        if (res.ok) {
+          btn.textContent = "You're on the list";
+          document.getElementById('emailInput').disabled = true;
+        } else {
+          btn.textContent = 'Try again';
+          btn.disabled = false;
+        }
+      } catch {
+        btn.textContent = 'Try again';
+        btn.disabled = false;
+      }
     }
   </script>
 </body>
