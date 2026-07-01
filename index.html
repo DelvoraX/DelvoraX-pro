@@ -79,22 +79,26 @@
       font-size: 1rem;
       color: var(--text-muted);
       text-align: center;
-      max-width: 380px;
+      max-width: 420px;
       line-height: 1.6;
-      margin-bottom: 3rem;
+      margin-bottom: 2.5rem;
     }
     .form {
       display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-      justify-content: center;
+      flex-direction: column;
+      gap: 0.75rem;
       width: 100%;
-      max-width: 420px;
+      max-width: 480px;
       margin-bottom: 3rem;
     }
-    .form input {
-      flex: 1;
-      min-width: 200px;
+    .form-row {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .form input,
+    .form select,
+    .form textarea {
+      width: 100%;
       padding: 0.75rem 1rem;
       border: 1px solid var(--hairline);
       border-radius: 4px;
@@ -104,21 +108,28 @@
       background: var(--surface);
       outline: none;
       transition: border-color 0.2s;
+      appearance: none;
     }
-    .form input:focus { border-color: var(--teal); }
-    .form input::placeholder { color: var(--text-muted); }
+    .form input:focus,
+    .form select:focus,
+    .form textarea:focus { border-color: var(--teal); }
+    .form input::placeholder,
+    .form textarea::placeholder { color: var(--text-muted); }
+    .form select { color: var(--text-muted); cursor: pointer; }
+    .form select.filled { color: var(--navy); }
+    .form textarea { resize: vertical; min-height: 100px; }
     .form button {
-      padding: 0.75rem 1.4rem;
+      padding: 0.85rem 1.4rem;
       background: var(--teal);
       color: var(--white);
       border: none;
       border-radius: 4px;
       font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-weight: 500;
       cursor: pointer;
       transition: background 0.2s;
-      white-space: nowrap;
+      width: 100%;
     }
     .form button:hover { background: #0a7460; }
     .form button:disabled { background: #1D9E75; cursor: default; }
@@ -130,8 +141,7 @@
       color: var(--hairline);
     }
     @media (max-width: 480px) {
-      .form { flex-direction: column; }
-      .form input, .form button { width: 100%; }
+      .form-row { flex-direction: column; }
     }
     @media (prefers-reduced-motion: reduce) {
       .orb { animation: none; }
@@ -152,19 +162,36 @@
     Fill the <span>calendar.</span>
   </h1>
   <p class="sub">
-    Something worth waiting for. Drop your email and we'll let you know the moment early access opens.
+    Launching soon. Leave your details and you'll be first to know when early access opens.
   </p>
   <div class="form">
-    <input type="email" id="emailInput" placeholder="your@email.com" aria-label="Email address" />
-    <button id="submitBtn" onclick="submitEmail()">Notify me</button>
+    <div class="form-row">
+      <input type="text" id="firstName" placeholder="First name" />
+      <input type="text" id="lastName" placeholder="Last name" />
+    </div>
+    <input type="email" id="email" placeholder="Email address" />
+    <input type="text" id="business" placeholder="Business name" />
+    <input type="tel" id="phone" placeholder="Phone number" />
+    <select id="country" onchange="this.classList.add('filled')">
+      <option value="" disabled selected>Country</option>
+      <option>Afghanistan</option><option>Albania</option><option>Algeria</option><option>Argentina</option><option>Australia</option><option>Austria</option><option>Belgium</option><option>Brazil</option><option>Canada</option><option>Chile</option><option>China</option><option>Colombia</option><option>Croatia</option><option>Czech Republic</option><option>Denmark</option><option>Egypt</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Hungary</option><option>India</option><option>Indonesia</option><option>Iran</option><option>Iraq</option><option>Ireland</option><option>Israel</option><option>Italy</option><option>Japan</option><option>Jordan</option><option>Kenya</option><option>Malaysia</option><option>Mexico</option><option>Netherlands</option><option>New Zealand</option><option>Nigeria</option><option>Norway</option><option>Pakistan</option><option>Philippines</option><option>Poland</option><option>Portugal</option><option>Romania</option><option>Russia</option><option>Saudi Arabia</option><option>Singapore</option><option>South Africa</option><option>South Korea</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>Thailand</option><option>Turkey</option><option>Ukraine</option><option>United Arab Emirates</option><option>United Kingdom</option><option>United States</option><option>Vietnam</option>
+    </select>
+    <textarea id="message" placeholder="Anything you'd like us to know?"></textarea>
+    <button id="submitBtn" onclick="submitForm()">Get early access</button>
   </div>
   <p class="footer">delvorax.pro</p>
   <script>
-    async function submitEmail() {
-      const email = document.getElementById('emailInput').value;
+    async function submitForm() {
+      const firstName = document.getElementById('firstName').value.trim();
+      const lastName = document.getElementById('lastName').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const business = document.getElementById('business').value.trim();
+      const phone = document.getElementById('phone').value.trim();
+      const country = document.getElementById('country').value;
+      const message = document.getElementById('message').value.trim();
       const btn = document.getElementById('submitBtn');
-      if (!email || !email.includes('@')) {
-        document.getElementById('emailInput').focus();
+      if (!firstName || !email || !email.includes('@')) {
+        document.getElementById(!firstName ? 'firstName' : 'email').focus();
         return;
       }
       btn.textContent = 'Sending...';
@@ -173,11 +200,19 @@
         const res = await fetch('https://formspree.io/f/xzdljvjp', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-          body: JSON.stringify({ email: email })
+          body: JSON.stringify({
+            'First name': firstName,
+            'Last name': lastName,
+            email: email,
+            'Business': business,
+            'Phone': phone,
+            'Country': country,
+            'Message': message
+          })
         });
         if (res.ok) {
           btn.textContent = "You're on the list";
-          document.getElementById('emailInput').disabled = true;
+          document.querySelectorAll('.form input, .form select, .form textarea').forEach(el => el.disabled = true);
         } else {
           btn.textContent = 'Try again';
           btn.disabled = false;
