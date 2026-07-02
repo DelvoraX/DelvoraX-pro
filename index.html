@@ -18,7 +18,7 @@
       --hairline: #E5E8ED;
       --text-muted: #6B7280;
     }
-    html, body { height: 100%; }
+    html, body { min-height: 100%; }
     body {
       font-family: 'Source Sans 3', sans-serif;
       background: var(--white);
@@ -26,14 +26,18 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      padding: 2rem;
+      padding: 3rem 1.5rem 4rem;
+    }
+    .header {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-bottom: 2.5rem;
     }
     .orb {
-      width: 72px;
-      height: 72px;
-      margin-bottom: 2rem;
+      width: 56px;
+      height: 56px;
+      margin-bottom: 1rem;
       animation: pulse 3s ease-in-out infinite;
     }
     @keyframes pulse {
@@ -43,67 +47,65 @@
     .wordmark {
       font-family: 'Fraunces', serif;
       font-weight: 600;
-      font-size: clamp(2rem, 6vw, 3.5rem);
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--navy);
       line-height: 1;
-      margin-bottom: 0.5rem;
+      margin-bottom: 0.4rem;
     }
     .tagline {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
+      font-size: 0.65rem;
       letter-spacing: 0.18em;
       text-transform: uppercase;
       color: var(--teal);
-      margin-bottom: 3rem;
     }
     .rule {
       width: 40px;
       height: 1px;
       background: var(--hairline);
-      margin: 0 auto 3rem;
+      margin: 2rem auto;
     }
     .headline {
       font-family: 'Fraunces', serif;
       font-weight: 600;
-      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-size: clamp(1.4rem, 3.5vw, 2rem);
       color: var(--navy);
       text-align: center;
       line-height: 1.2;
-      max-width: 520px;
-      margin-bottom: 1rem;
+      max-width: 480px;
+      margin-bottom: 0.75rem;
     }
     .headline span { color: var(--teal); }
     .sub {
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: var(--text-muted);
       text-align: center;
-      max-width: 420px;
+      max-width: 380px;
       line-height: 1.6;
-      margin-bottom: 2.5rem;
+      margin-bottom: 2rem;
     }
     .form {
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.65rem;
       width: 100%;
-      max-width: 480px;
-      margin-bottom: 3rem;
+      max-width: 460px;
     }
     .form-row {
       display: flex;
-      gap: 0.75rem;
+      gap: 0.65rem;
     }
     .form input,
     .form select,
     .form textarea {
       width: 100%;
-      padding: 0.75rem 1rem;
+      padding: 0.7rem 0.9rem;
       border: 1px solid var(--hairline);
       border-radius: 4px;
       font-family: 'Source Sans 3', sans-serif;
-      font-size: 0.95rem;
+      font-size: 0.9rem;
       color: var(--navy);
       background: var(--surface);
       outline: none;
@@ -117,28 +119,30 @@
     .form textarea::placeholder { color: var(--text-muted); }
     .form select { color: var(--text-muted); cursor: pointer; }
     .form select.filled { color: var(--navy); }
-    .form textarea { resize: vertical; min-height: 100px; }
+    .form textarea { resize: vertical; min-height: 80px; }
     .form button {
-      padding: 0.85rem 1.4rem;
+      padding: 0.8rem 1.4rem;
       background: var(--teal);
       color: var(--white);
       border: none;
       border-radius: 4px;
       font-family: 'Source Sans 3', sans-serif;
-      font-size: 1rem;
+      font-size: 0.95rem;
       font-weight: 500;
       cursor: pointer;
       transition: background 0.2s;
       width: 100%;
+      margin-top: 0.25rem;
     }
     .form button:hover { background: #0a7460; }
     .form button:disabled { background: #1D9E75; cursor: default; }
     .footer {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
+      font-size: 0.6rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--hairline);
+      margin-top: 2.5rem;
     }
     @media (max-width: 480px) {
       .form-row { flex-direction: column; }
@@ -149,13 +153,15 @@
   </style>
 </head>
 <body>
-  <svg class="orb" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-    <circle cx="32" cy="32" r="26" fill="none" stroke="#0F8C74" stroke-width="1.5" stroke-dasharray="2.2 4.4"/>
-    <circle cx="32" cy="32" r="16" fill="none" stroke="#0F8C74" stroke-width="1.5"/>
-    <circle cx="32" cy="32" r="6" fill="#0F8C74"/>
-  </svg>
-  <p class="wordmark">DelvoraX</p>
-  <p class="tagline">AI Outreach Co-Pilot</p>
+  <div class="header">
+    <svg class="orb" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <circle cx="32" cy="32" r="26" fill="none" stroke="#0F8C74" stroke-width="1.5" stroke-dasharray="2.2 4.4"/>
+      <circle cx="32" cy="32" r="16" fill="none" stroke="#0F8C74" stroke-width="1.5"/>
+      <circle cx="32" cy="32" r="6" fill="#0F8C74"/>
+    </svg>
+    <p class="wordmark">DelvoraX</p>
+    <p class="tagline">AI Outreach Co-Pilot</p>
+  </div>
   <div class="rule"></div>
   <h1 class="headline">
     Add accounts.<br/>
