@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DelvoraX — Launching Soon</title>
-  <meta name="description" content="AI sales-outreach co-pilot. Launching soon at delvorax.pro." />
+  <title>DelvoraX — AI Outreach Co-Pilot</title>
+  <meta name="description" content="DelvoraX does your full outbound workflow. Research, contacts, sequences, sending, replies. All in one desktop app." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Source+Sans+3:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
@@ -23,138 +23,188 @@
       font-family: 'Source Sans 3', sans-serif;
       background: var(--white);
       color: var(--navy);
+    }
+    a { text-decoration: none; color: inherit; }
+    nav {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      padding: 3rem 1.5rem 4rem;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 0.5px solid var(--hairline);
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      z-index: 100;
     }
-    .header {
+    .nav-logo {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      margin-bottom: 1.5rem;
+      gap: 10px;
     }
-    .orb {
-      width: 56px;
-      height: 56px;
-      margin-bottom: 1rem;
-      animation: pulse 3s ease-in-out infinite;
-    }
-    @keyframes pulse {
-      0%, 100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.8; transform: scale(0.97); }
-    }
-    .wordmark {
+    .nav-logo span {
       font-family: 'Fraunces', serif;
       font-weight: 600;
-      font-size: clamp(1.8rem, 5vw, 2.8rem);
-      letter-spacing: 0.12em;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
       color: var(--navy);
-      line-height: 1;
-      margin-bottom: 0.4rem;
     }
-    .tagline {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--teal);
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
     }
-    .rule {
-      width: 40px;
-      height: 1px;
-      background: var(--hairline);
-      margin: 1.5rem auto;
+    .nav-links a {
+      font-size: 0.88rem;
+      color: var(--text-muted);
     }
+    .nav-links a:hover { color: var(--navy); }
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-weight: 500;
+      cursor: pointer;
+      border: none;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .btn-primary:hover { background: #0a7460; }
+    .btn-outline {
+      border: 0.5px solid var(--hairline);
+      color: var(--navy);
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      cursor: pointer;
+      background: none;
+      font-family: 'Source Sans 3', sans-serif;
+    }
+    .btn-outline:hover { border-color: var(--navy); }
+    .rule { height: 0.5px; background: var(--hairline); }
     .kicker {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.65rem;
-      letter-spacing: 0.15em;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: var(--text-muted);
-      text-align: center;
-      margin-bottom: 0.75rem;
+      color: var(--teal);
+      margin-bottom: 1rem;
     }
-    .headline {
+    .section { padding: 4rem 2rem; max-width: 760px; margin: 0 auto; }
+    .section-center { text-align: center; }
+    .section-center .kicker { display: block; }
+    h1 {
       font-family: 'Fraunces', serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
       font-weight: 600;
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
+      line-height: 1.2;
       color: var(--navy);
-      text-align: center;
-      line-height: 1.25;
-      max-width: 480px;
-      margin-bottom: 0.5rem;
+      margin-bottom: 1rem;
+    }
+    h2 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.3rem, 3vw, 1.7rem);
+      font-weight: 600;
+      line-height: 1.3;
+      color: var(--navy);
+      margin-bottom: 1rem;
     }
     .sting {
       font-size: 1rem;
       color: var(--teal);
       font-style: italic;
-      text-align: center;
-      margin-bottom: 2rem;
+      margin-bottom: 1rem;
+    }
+    .body-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 480px;
+    }
+    .hero-ctas {
+      display: flex;
+      gap: 0.75rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .hero-ctas .btn-primary { padding: 0.75rem 1.75rem; font-size: 0.95rem; }
+    .hero-ctas .btn-outline { padding: 0.75rem 1.75rem; font-size: 0.95rem; }
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--hairline);
+      margin-top: 2rem;
+    }
+    .feature-card {
+      background: var(--white);
+      padding: 1.25rem;
+    }
+    .feature-num {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.5rem;
+    }
+    .feature-card h3 {
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--navy);
+      margin-bottom: 0.4rem;
+    }
+    .feature-card p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      line-height: 1.6;
     }
     .before-after {
-      width: 100%;
-      max-width: 460px;
-      margin-bottom: 2rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: var(--hairline);
+      margin-top: 2rem;
     }
-    .before {
+    .before-card {
       background: var(--surface);
-      border: 0.5px solid var(--hairline);
-      border-radius: 8px 8px 2px 2px;
-      padding: 1.1rem 1.3rem;
+      padding: 1.5rem;
     }
-    .after {
+    .after-card {
       background: var(--surface);
-      border: 0.5px solid var(--teal);
-      border-radius: 2px 2px 8px 8px;
-      padding: 1.1rem 1.3rem;
+      padding: 1.5rem;
+      border-left: 2px solid var(--teal);
     }
-    .before-label {
+    .before-card .label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--text-muted);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.75rem;
     }
-    .after-label {
+    .after-card .label {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.62rem;
+      font-size: 0.6rem;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--teal);
-      margin-bottom: 0.4rem;
+      margin-bottom: 0.75rem;
     }
-    .before p { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; }
-    .after p { font-size: 0.95rem; color: var(--navy); line-height: 1.5; font-weight: 500; }
-    .midline {
-      font-family: 'Fraunces', serif;
-      font-size: clamp(1.1rem, 3vw, 1.3rem);
-      font-weight: 600;
-      color: var(--navy);
-      text-align: center;
-      line-height: 1.4;
-      max-width: 420px;
-      margin-bottom: 0.5rem;
-    }
-    .midsting {
-      font-size: 0.95rem;
-      color: var(--teal);
-      font-style: italic;
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-    .form {
-      display: flex;
-      flex-direction: column;
-      gap: 0.65rem;
-      width: 100%;
+    .before-card p { font-size: 0.9rem; color: var(--text-muted); line-height: 1.65; }
+    .after-card p { font-size: 0.9rem; color: var(--navy); line-height: 1.65; font-weight: 500; }
+    .signup-box {
+      background: var(--surface);
+      border: 0.5px solid var(--hairline);
+      border-radius: 8px;
+      padding: 2rem;
       max-width: 460px;
+      margin: 2rem auto 0;
     }
+    .form { display: flex; flex-direction: column; gap: 0.65rem; }
     .form-row { display: flex; gap: 0.65rem; }
-    .form input,
-    .form select,
-    .form textarea {
+    .form input, .form select, .form textarea {
       width: 100%;
       padding: 0.7rem 0.9rem;
       border: 1px solid var(--hairline);
@@ -162,21 +212,18 @@
       font-family: 'Source Sans 3', sans-serif;
       font-size: 0.9rem;
       color: var(--navy);
-      background: var(--surface);
+      background: var(--white);
       outline: none;
       transition: border-color 0.2s;
       appearance: none;
     }
-    .form input:focus,
-    .form select:focus,
-    .form textarea:focus { border-color: var(--teal); }
-    .form input::placeholder,
-    .form textarea::placeholder { color: var(--text-muted); }
+    .form input:focus, .form select:focus, .form textarea:focus { border-color: var(--teal); }
+    .form input::placeholder, .form textarea::placeholder { color: var(--text-muted); }
     .form select { color: var(--text-muted); cursor: pointer; }
     .form select.filled { color: var(--navy); }
     .form textarea { resize: vertical; min-height: 80px; }
     .form button {
-      padding: 0.8rem 1.4rem;
+      padding: 0.8rem;
       background: var(--teal);
       color: var(--white);
       border: none;
@@ -185,73 +232,139 @@
       font-size: 0.95rem;
       font-weight: 500;
       cursor: pointer;
-      transition: background 0.2s;
       width: 100%;
       margin-top: 0.25rem;
     }
     .form button:hover { background: #0a7460; }
     .form button:disabled { background: #1D9E75; cursor: default; }
-    .footer {
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-top: 0.5px solid var(--hairline);
+    }
+    footer span {
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.6rem;
+      font-size: 0.58rem;
       letter-spacing: 0.12em;
       text-transform: uppercase;
       color: var(--hairline);
-      margin-top: 2.5rem;
     }
-    @media (max-width: 480px) {
+    @media (max-width: 520px) {
+      nav { padding: 1rem; }
+      .nav-links a:not(.btn-primary) { display: none; }
+      .section { padding: 3rem 1.25rem; }
+      .before-after { grid-template-columns: 1fr; }
       .form-row { flex-direction: column; }
-    }
-    @media (prefers-reduced-motion: reduce) {
-      .orb { animation: none; }
+      footer { padding: 1.25rem; }
     }
   </style>
 </head>
 <body>
-  <div class="header">
-    <svg class="orb" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <circle cx="32" cy="32" r="26" fill="none" stroke="#0F8C74" stroke-width="1.5" stroke-dasharray="2.2 4.4"/>
-      <circle cx="32" cy="32" r="16" fill="none" stroke="#0F8C74" stroke-width="1.5"/>
-      <circle cx="32" cy="32" r="6" fill="#0F8C74"/>
-    </svg>
-    <p class="wordmark">DelvoraX</p>
-    <p class="tagline">AI Outreach Co-Pilot</p>
-  </div>
-  <div class="rule"></div>
-  <p class="kicker">Remember when</p>
-  <h1 class="headline">Your calendar used to<br/>be empty on Mondays.</h1>
-  <p class="sting">That's in the past.</p>
-  <div class="before-after">
-    <div class="before">
-      <p class="before-label">The old way</p>
-      <p>3 hours building a prospect list. 2 hours writing emails. 1 hour chasing replies. Zero meetings booked.</p>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="26" fill="none" stroke="#0F8C74" stroke-width="1.5" stroke-dasharray="2.2 4.4"/>
+        <circle cx="32" cy="32" r="16" fill="none" stroke="#0F8C74" stroke-width="1.5"/>
+        <circle cx="32" cy="32" r="6" fill="#0F8C74"/>
+      </svg>
+      <span>DelvoraX</span>
+    </a>
+    <div class="nav-links">
+      <a href="#how-it-works">How it works</a>
+      <a href="about.html">About</a>
+      <a href="#signup" class="btn-primary">Get early access</a>
     </div>
-    <div class="after">
-      <p class="after-label">Now</p>
-      <p>30 minutes. Done.</p>
+  </nav>
+
+  <div class="section section-center">
+    <p class="kicker">Coming soon</p>
+    <h1>Your calendar used to be empty on Mondays.</h1>
+    <p class="sting">That's in the past.</p>
+    <p class="body-text" style="margin: 0 auto;">DelvoraX does your full outbound workflow. Research, contacts, sequences, sending, replies. All in one desktop app.</p>
+    <div class="hero-ctas">
+      <button class="btn-primary" onclick="document.getElementById('signup').scrollIntoView({behavior:'smooth'})">Get early access</button>
+      <button class="btn-outline" onclick="document.getElementById('how-it-works').scrollIntoView({behavior:'smooth'})">See how it works</button>
     </div>
   </div>
+
   <div class="rule"></div>
-  <p class="midline">The AEs who book the most meetings<br/>aren't working harder.</p>
-  <p class="midsting">They're just working smarter.</p>
-  <div class="rule"></div>
-  <p class="kicker">Launching soon. Be first.</p>
-  <div class="form">
-    <div class="form-row">
-      <input type="text" id="firstName" placeholder="First name" />
-      <input type="text" id="lastName" placeholder="Last name" />
+
+  <div class="section" id="how-it-works">
+    <p class="kicker">What it does</p>
+    <div class="features-grid">
+      <div class="feature-card">
+        <p class="feature-num">01</p>
+        <h3>Account research</h3>
+        <p>Builds a full intel brief on every target company before you touch a keyboard.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-num">02</p>
+        <h3>Contact discovery</h3>
+        <p>Finds the right buyers inside each account, with verified contact details.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-num">03</p>
+        <h3>Personalised sequences</h3>
+        <p>Writes outreach that reads like a human wrote it, because the context is real.</p>
+      </div>
+      <div class="feature-card">
+        <p class="feature-num">04</p>
+        <h3>Sending and replies</h3>
+        <p>Handles the send schedule and flags replies that need your attention.</p>
+      </div>
     </div>
-    <input type="email" id="email" placeholder="Email address" />
-    <input type="text" id="business" placeholder="Business name" />
-    <input type="tel" id="phone" placeholder="Phone number" />
-    <select id="country" onchange="this.classList.add('filled')">
-      <option value="" disabled selected>Country</option>
-      <option>Afghanistan</option><option>Albania</option><option>Algeria</option><option>Argentina</option><option>Australia</option><option>Austria</option><option>Belgium</option><option>Brazil</option><option>Canada</option><option>Chile</option><option>China</option><option>Colombia</option><option>Croatia</option><option>Czech Republic</option><option>Denmark</option><option>Egypt</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Hungary</option><option>India</option><option>Indonesia</option><option>Iran</option><option>Iraq</option><option>Ireland</option><option>Israel</option><option>Italy</option><option>Japan</option><option>Jordan</option><option>Kenya</option><option>Malaysia</option><option>Mexico</option><option>Netherlands</option><option>New Zealand</option><option>Nigeria</option><option>Norway</option><option>Pakistan</option><option>Philippines</option><option>Poland</option><option>Portugal</option><option>Romania</option><option>Russia</option><option>Saudi Arabia</option><option>Singapore</option><option>South Africa</option><option>South Korea</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>Thailand</option><option>Turkey</option><option>Ukraine</option><option>United Arab Emirates</option><option>United Kingdom</option><option>United States</option><option>Vietnam</option>
-    </select>
-    <textarea id="message" placeholder="Anything you'd like us to know?"></textarea>
-    <button id="submitBtn" onclick="submitForm()">Get early access</button>
   </div>
-  <p class="footer">delvorax.pro</p>
+
+  <div class="rule"></div>
+
+  <div class="section">
+    <div class="before-after">
+      <div class="before-card">
+        <p class="label">The old way</p>
+        <p>3 hours on prospect lists. 2 hours writing emails. 1 hour chasing replies. Zero meetings booked.</p>
+      </div>
+      <div class="after-card">
+        <p class="label">With DelvoraX</p>
+        <p>30 minutes. Then it runs.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="section section-center" id="signup">
+    <h2>The AEs who book the most meetings aren't working harder.</h2>
+    <p class="sting">They're just working smarter.</p>
+    <p class="kicker" style="margin-top: 2rem;">Launching soon. Be first.</p>
+    <div class="signup-box">
+      <div class="form">
+        <div class="form-row">
+          <input type="text" id="firstName" placeholder="First name" />
+          <input type="text" id="lastName" placeholder="Last name" />
+        </div>
+        <input type="email" id="email" placeholder="Email address" />
+        <input type="text" id="business" placeholder="Business name" />
+        <input type="tel" id="phone" placeholder="Phone number" />
+        <select id="country" onchange="this.classList.add('filled')">
+          <option value="" disabled selected>Country</option>
+          <option>Afghanistan</option><option>Albania</option><option>Algeria</option><option>Argentina</option><option>Australia</option><option>Austria</option><option>Belgium</option><option>Brazil</option><option>Canada</option><option>Chile</option><option>China</option><option>Colombia</option><option>Croatia</option><option>Czech Republic</option><option>Denmark</option><option>Egypt</option><option>Finland</option><option>France</option><option>Germany</option><option>Greece</option><option>Hungary</option><option>India</option><option>Indonesia</option><option>Iran</option><option>Iraq</option><option>Ireland</option><option>Israel</option><option>Italy</option><option>Japan</option><option>Jordan</option><option>Kenya</option><option>Malaysia</option><option>Mexico</option><option>Netherlands</option><option>New Zealand</option><option>Nigeria</option><option>Norway</option><option>Pakistan</option><option>Philippines</option><option>Poland</option><option>Portugal</option><option>Romania</option><option>Russia</option><option>Saudi Arabia</option><option>Singapore</option><option>South Africa</option><option>South Korea</option><option>Spain</option><option>Sweden</option><option>Switzerland</option><option>Thailand</option><option>Turkey</option><option>Ukraine</option><option>United Arab Emirates</option><option>United Kingdom</option><option>United States</option><option>Vietnam</option>
+        </select>
+        <textarea id="message" placeholder="Anything you'd like us to know?"></textarea>
+        <button id="submitBtn" onclick="submitForm()">Get early access</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <footer>
+    <span>DelvoraX</span>
+    <span>delvorax.pro</span>
+  </footer>
+
   <script>
     async function submitForm() {
       const firstName = document.getElementById('firstName').value.trim();
@@ -295,5 +408,6 @@
       }
     }
   </script>
+
 </body>
 </html>
