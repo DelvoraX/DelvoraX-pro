@@ -7,7 +7,7 @@
   <meta name="description" content="Why Fred Jones built DelvoraX and what it stands for." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Source+Sans+3:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Source+Sans+3:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -46,11 +46,12 @@
     .nav-links a:hover { color: var(--navy); }
     .btn-primary {
       background: var(--teal);
-      color: var(--white);
+      color: #FFFFFF;
       padding: 0.45rem 1.1rem;
       border-radius: 4px;
       font-size: 0.88rem;
-      font-weight: 500;
+      font-weight: 700;
+      letter-spacing: 0.01em;
     }
     .btn-primary:hover { background: #0a7460; }
     .rule { height: 0.5px; background: var(--hairline); }
@@ -79,12 +80,7 @@
       margin-bottom: 1rem;
       max-width: 520px;
     }
-    .founder-block {
-      display: flex;
-      align-items: flex-start;
-      gap: 1.5rem;
-      margin-top: 1rem;
-    }
+    .founder-block { display: flex; align-items: flex-start; gap: 1.5rem; margin-top: 1rem; }
     .founder-avatar {
       width: 72px;
       height: 72px;
@@ -95,12 +91,7 @@
       justify-content: center;
       flex-shrink: 0;
     }
-    .founder-name {
-      font-size: 1.1rem;
-      font-weight: 600;
-      color: var(--navy);
-      margin-bottom: 0.25rem;
-    }
+    .founder-name { font-size: 1.1rem; font-weight: 600; color: var(--navy); margin-bottom: 0.25rem; }
     .founder-title {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.62rem;
@@ -109,12 +100,7 @@
       color: var(--teal);
       margin-bottom: 0.75rem;
     }
-    .founder-bio {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-      max-width: 440px;
-    }
+    .founder-bio { font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; max-width: 440px; }
     .values-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
