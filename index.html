@@ -7,7 +7,7 @@
   <meta name="description" content="DelvoraX does your full outbound workflow. Research, contacts, sequences, sending, replies. All in one desktop app." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Source+Sans+3:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Source+Sans+3:wght@400;500;700&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     :root {
@@ -19,11 +19,7 @@
       --text-muted: #6B7280;
     }
     html, body { min-height: 100%; }
-    body {
-      font-family: 'Source Sans 3', sans-serif;
-      background: var(--white);
-      color: var(--navy);
-    }
+    body { font-family: 'Source Sans 3', sans-serif; background: var(--white); color: var(--navy); }
     a { text-decoration: none; color: inherit; }
     nav {
       display: flex;
@@ -36,11 +32,7 @@
       background: var(--white);
       z-index: 100;
     }
-    .nav-logo {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
     .nav-logo span {
       font-family: 'Fraunces', serif;
       font-weight: 600;
@@ -48,23 +40,17 @@
       letter-spacing: 0.08em;
       color: var(--navy);
     }
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 1.5rem;
-    }
-    .nav-links a {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-    }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { font-size: 0.88rem; color: var(--text-muted); }
     .nav-links a:hover { color: var(--navy); }
     .btn-primary {
       background: var(--teal);
-      color: var(--white);
+      color: #FFFFFF;
       padding: 0.45rem 1.1rem;
       border-radius: 4px;
       font-size: 0.88rem;
-      font-weight: 500;
+      font-weight: 700;
+      letter-spacing: 0.01em;
       cursor: pointer;
       border: none;
       font-family: 'Source Sans 3', sans-serif;
@@ -137,10 +123,7 @@
       background: var(--hairline);
       margin-top: 2rem;
     }
-    .feature-card {
-      background: var(--white);
-      padding: 1.25rem;
-    }
+    .feature-card { background: var(--white); padding: 1.25rem; }
     .feature-num {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
@@ -149,17 +132,8 @@
       color: var(--teal);
       margin-bottom: 0.5rem;
     }
-    .feature-card h3 {
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--navy);
-      margin-bottom: 0.4rem;
-    }
-    .feature-card p {
-      font-size: 0.85rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-    }
+    .feature-card h3 { font-size: 0.95rem; font-weight: 500; color: var(--navy); margin-bottom: 0.4rem; }
+    .feature-card p { font-size: 0.85rem; color: var(--text-muted); line-height: 1.6; }
     .before-after {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -167,15 +141,8 @@
       background: var(--hairline);
       margin-top: 2rem;
     }
-    .before-card {
-      background: var(--surface);
-      padding: 1.5rem;
-    }
-    .after-card {
-      background: var(--surface);
-      padding: 1.5rem;
-      border-left: 2px solid var(--teal);
-    }
+    .before-card { background: var(--surface); padding: 1.5rem; }
+    .after-card { background: var(--surface); padding: 1.5rem; border-left: 2px solid var(--teal); }
     .before-card .label {
       font-family: 'JetBrains Mono', monospace;
       font-size: 0.6rem;
@@ -225,12 +192,13 @@
     .form button {
       padding: 0.8rem;
       background: var(--teal);
-      color: var(--white);
+      color: #FFFFFF;
       border: none;
       border-radius: 4px;
       font-family: 'Source Sans 3', sans-serif;
       font-size: 0.95rem;
-      font-weight: 500;
+      font-weight: 700;
+      letter-spacing: 0.01em;
       cursor: pointer;
       width: 100%;
       margin-top: 0.25rem;
