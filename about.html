@@ -1,1 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>About — DelvoraX</title>
+  <meta name="description" content="Why Fred Jones built DelvoraX and what it stands for." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@600&family=Source+Sans+3:wght@400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    :root {
+      --navy: #1A1F2E;
+      --teal: #0F8C74;
+      --white: #FFFFFF;
+      --surface: #F6F7F9;
+      --hairline: #E5E8ED;
+      --text-muted: #6B7280;
+    }
+    html, body { min-height: 100%; }
+    body { font-family: 'Source Sans 3', sans-serif; background: var(--white); color: var(--navy); }
+    a { text-decoration: none; color: inherit; }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.25rem 2rem;
+      border-bottom: 0.5px solid var(--hairline);
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      z-index: 100;
+    }
+    .nav-logo { display: flex; align-items: center; gap: 10px; }
+    .nav-logo span {
+      font-family: 'Fraunces', serif;
+      font-weight: 600;
+      font-size: 1.1rem;
+      letter-spacing: 0.08em;
+      color: var(--navy);
+    }
+    .nav-links { display: flex; align-items: center; gap: 1.5rem; }
+    .nav-links a { font-size: 0.88rem; color: var(--text-muted); }
+    .nav-links a.active { color: var(--navy); font-weight: 500; }
+    .nav-links a:hover { color: var(--navy); }
+    .btn-primary {
+      background: var(--teal);
+      color: var(--white);
+      padding: 0.45rem 1.1rem;
+      border-radius: 4px;
+      font-size: 0.88rem;
+      font-weight: 500;
+    }
+    .btn-primary:hover { background: #0a7460; }
+    .rule { height: 0.5px; background: var(--hairline); }
+    .kicker {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 1rem;
+      display: block;
+    }
+    .section { padding: 4rem 2rem; max-width: 680px; margin: 0 auto; }
+    h1 {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+      font-weight: 600;
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 1.5rem;
+    }
+    .body-text {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      margin-bottom: 1rem;
+      max-width: 520px;
+    }
+    .founder-block {
+      display: flex;
+      align-items: flex-start;
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .founder-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      background: var(--navy);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .founder-name {
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.25rem;
+    }
+    .founder-title {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.62rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--teal);
+      margin-bottom: 0.75rem;
+    }
+    .founder-bio {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+      max-width: 440px;
+    }
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 1px;
+      background: var(--hairline);
+      margin-top: 1.5rem;
+    }
+    .value-card { background: var(--white); padding: 1.25rem; }
+    .value-card h3 { font-size: 0.9rem; font-weight: 500; color: var(--navy); margin-bottom: 0.4rem; }
+    .value-card p { font-size: 0.83rem; color: var(--text-muted); line-height: 1.6; }
+    .cta-section { text-align: center; padding: 3rem 2rem; }
+    .cta-section h2 {
+      font-family: 'Fraunces', serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 0.5rem;
+    }
+    .cta-section p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 1.5rem; }
+    .cta-section .btn-primary { padding: 0.75rem 1.75rem; font-size: 0.95rem; display: inline-block; }
+    footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 2rem;
+      border-top: 0.5px solid var(--hairline);
+    }
+    footer span {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.58rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--hairline);
+    }
+    @media (max-width: 520px) {
+      nav { padding: 1rem; }
+      .nav-links a:not(.btn-primary) { display: none; }
+      .section { padding: 2.5rem 1.25rem; }
+      .founder-block { flex-direction: column; }
+      footer { padding: 1.25rem; }
+    }
+  </style>
+</head>
+<body>
 
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <svg width="28" height="28" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="32" cy="32" r="26" fill="none" stroke="#0F8C74" stroke-width="1.5" stroke-dasharray="2.2 4.4"/>
+        <circle cx="32" cy="32" r="16" fill="none" stroke="#0F8C74" stroke-width="1.5"/>
+        <circle cx="32" cy="32" r="6" fill="#0F8C74"/>
+      </svg>
+      <span>DelvoraX</span>
+    </a>
+    <div class="nav-links">
+      <a href="index.html#how-it-works">How it works</a>
+      <a href="about.html" class="active">About</a>
+      <a href="index.html#signup" class="btn-primary">Get early access</a>
+    </div>
+  </nav>
+
+  <div class="section">
+    <span class="kicker">About</span>
+    <h1>Why we built DelvoraX</h1>
+    <p class="body-text">Most B2B sales tools were built to manage outreach, not do it. So AEs end up spending three or four hours a day on research, writing, and chasing, before a single real conversation happens.</p>
+    <p class="body-text">DelvoraX was built to close that gap. One desktop app that handles the full outbound workflow, from finding the right accounts to sending the right message at the right time. The rep approves, the AI runs it.</p>
+    <p class="body-text">We're still building. Early access opens soon.</p>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="section">
+    <span class="kicker">The founder</span>
+    <div class="founder-block">
+      <div class="founder-avatar">
+        <svg width="32" height="32" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="32" cy="32" r="26" fill="none" stroke="#0F8C74" stroke-width="1.5" stroke-dasharray="2.2 4.4"/>
+          <circle cx="32" cy="32" r="16" fill="none" stroke="#0F8C74" stroke-width="1.5"/>
+          <circle cx="32" cy="32" r="6" fill="#0F8C74"/>
+        </svg>
+      </div>
+      <div>
+        <p class="founder-name">Fred Jones</p>
+        <p class="founder-title">Founder, DelvoraX</p>
+        <p class="founder-bio">Fred built DelvoraX after watching sales teams burn hours every day on admin that should have been automated. He's been in and around B2B sales long enough to know exactly where the time goes, and exactly what it costs.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="section">
+    <span class="kicker">What we stand for</span>
+    <div class="values-grid">
+      <div class="value-card">
+        <h3>No fluff</h3>
+        <p>We don't add features to look impressive. Every part of DelvoraX earns its place by saving real time.</p>
+      </div>
+      <div class="value-card">
+        <h3>Rep in control</h3>
+        <p>The AI does the work. The rep reviews and approves. Nothing goes out without a human sign-off.</p>
+      </div>
+      <div class="value-card">
+        <h3>Built to last</h3>
+        <p>We're building something reps actually want to use every morning, not a tool that gets switched off after 60 days.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="rule"></div>
+
+  <div class="cta-section">
+    <h2>Want to be first through the door?</h2>
+    <p>Early access opens soon. Leave your details and we'll reach out.</p>
+    <a href="index.html#signup" class="btn-primary">Get early access</a>
+  </div>
+
+  <div class="rule"></div>
+
+  <footer>
+    <span>DelvoraX</span>
+    <span>delvorax.pro</span>
+  </footer>
+
+</body>
+</html>
