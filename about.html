@@ -46,14 +46,17 @@
     .nav-links a:hover { color: var(--navy); }
     .btn-primary {
       background: var(--teal);
-      color: #FFFFFF;
+      color: #FFFFFF !important;
+      -webkit-text-fill-color: #FFFFFF;
       padding: 0.45rem 1.1rem;
       border-radius: 4px;
       font-size: 0.88rem;
       font-weight: 700;
       letter-spacing: 0.01em;
+      text-shadow: none;
+      opacity: 1;
     }
-    .btn-primary:hover { background: #0a7460; }
+    .btn-primary:hover { background: #0a7460; color: #FFFFFF !important; -webkit-text-fill-color: #FFFFFF; }
     .rule { height: 0.5px; background: var(--hairline); }
     .kicker {
       font-family: 'JetBrains Mono', monospace;
